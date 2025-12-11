@@ -8,3 +8,25 @@ jobs:
     steps:
       - name: test
         run: echo "hello world"
+  test-python:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6.0.1
+      
+      - name: setup python
+        uses: actions/setup-python@v5
+        with:
+          python_version: "3.10"
+      
+      - name: install deps
+        run: pip install -r requirements.txt
+      
+      - name: test
+        run: pytest --maxfail=1 --disable-warnings-q
+      
+      - name: setup linter
+        run: pip install ruff
+      
+      - name: lint
+        run: ruff check .
