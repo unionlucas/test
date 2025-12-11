@@ -1,1 +1,8 @@
+name: CI
 
+on: push
+  jobs:
+    runner: ubuntu-latest
+    step:
+      name: test
+      - run: 'echo hello world'
