@@ -23,7 +23,7 @@ jobs:
         run: pip install -r requirements.txt
       
       - name: test
-        run: pytest --maxfail=1 --disable-warnings-q
+        run: pytest --maxfail=1 --disable-warnings -q
       
       - name: setup linter
         run: pip install ruff
